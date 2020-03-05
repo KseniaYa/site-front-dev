@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test site static</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="main_page">
+		<header>
+			<div id="logo" onclick="slowScroll('#top')">
+				<span>CV</br>KSY</span>
+			</div>
+			<div id="about">
+				<a href="#" tittle="Présentation" onclick="slowScroll('#presentation')">Présentation</a>
+				<a href="#" title="Competences" onclick="slowScroll('#competences')">Competences</a>
+				<a href="#" title="Langues" onclick="slowScroll('#langues')">Langues</a>
+				<a href="#" title="Formation" onclick="slowScroll('#formation')">Formation</a>
+				<a href="#" title="Experiences" onclick="slowScroll('#experiences')">Experiences</a>
+			</div>
+		</header>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		function slowScroll(id) {
+			$('body').animate({
+				scrollTop: $(id).offset().top
+			}, 500);
+		}
+
+		$(document).on("scroll", function() {
+			if($(window).scrollTop() === 0)
+				$("header").removeClass("fixed");
+			else
+				$("header").attr("class", "fixed");
+		})
+	</script>
+	
+</body>
+</html>
